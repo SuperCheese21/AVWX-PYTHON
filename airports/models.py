@@ -3,10 +3,10 @@ from django.db import models
 
 # Create your models here.
 class Airport(models.Model):
-    icao = models.CharField(max_length=4, primary_key=True)
+    icao = models.CharField(max_length=8, primary_key=True)
     iata = models.CharField(max_length=3)
     type = models.CharField(max_length=32)
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=256)
     latitude = models.FloatField(default=0.0)
     longitude = models.FloatField(default=0.0)
     elevation_ft = models.IntegerField(default=0)
