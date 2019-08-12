@@ -17,6 +17,5 @@ def update_data(url, model, create_new):
             new.save()
             print(f"Added {new} ({reader.line_num}/{len(rows)})")
         except KeyboardInterrupt:
-            print("Stopping database update...")
-            model.objects.all().delete()
+            print("Terminating database update...")
             exit()

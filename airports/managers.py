@@ -33,8 +33,8 @@ class RunwayManager(models.Manager):
     def create_runway(self, row, airport):
         return self.create(
             icao=airport.objects.get(icao=row[2]),
-            length_ft=row[3],
-            width_ft=row[4],
+            length_ft=row[3] or None,
+            width_ft=row[4] or None,
             surface=row[5],
             lighted=row[6] == "1",
             closed=row[7] == "1",
