@@ -1,8 +1,8 @@
 import csv
 import requests
 
-from airports.models import Airport, Frequency
 from django.core.management.base import BaseCommand
+from airports.models import Airport, Frequency
 
 
 class Command(BaseCommand):
