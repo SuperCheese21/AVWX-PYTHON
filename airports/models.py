@@ -1,5 +1,7 @@
 from django.db import models
 
+from .managers import AirportManager, FrequencyManager, RunwayManager
+
 
 class Airport(models.Model):
     icao = models.CharField(max_length=8, primary_key=True)
@@ -15,6 +17,8 @@ class Airport(models.Model):
     municipality = models.CharField(max_length=128)
     scheduled_service = models.BooleanField(null=True)
 
+    objects = AirportManager()
+
     def __str__(self):
         return self.icao
 
@@ -24,6 +28,8 @@ class Frequency(models.Model):
     type = models.CharField(max_length=16)
     description = models.CharField(max_length=64)
     frequency = models.DecimalField(null=True, max_digits=7, decimal_places=3)
+
+    objects = FrequencyManager()
 
     def __str__(self):
         return f"{self.icao} {self.type} ({self.frequency})"
@@ -52,6 +58,8 @@ class Runway(models.Model):
         null=True, max_digits=4, decimal_places=1
     )
     he_displaced_threshold_ft = models.IntegerField(null=True)
+
+    objects = RunwayManager()
 
     def __str__(self):
         return f"{self.icao} {self.le_ident}/{self.he_ident} ({self.length_ft})"
