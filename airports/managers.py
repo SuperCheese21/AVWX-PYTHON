@@ -8,9 +8,9 @@ class AirportManager(models.Manager):
             iata=row[13],
             type=row[2],
             name=row[3],
-            latitude=row[4],
-            longitude=row[5],
-            elevation_ft=row[6] or "0",
+            latitude=row[4] or None,
+            longitude=row[5] or None,
+            elevation_ft=row[6] or None,
             continent=row[7],
             country=row[8],
             region=row[9],
@@ -25,7 +25,7 @@ class FrequencyManager(models.Manager):
             icao=airport.objects.get(icao=row[2]),
             type=row[3],
             description=row[4],
-            frequency=row[5],
+            frequency=row[5] or None,
         )
 
 

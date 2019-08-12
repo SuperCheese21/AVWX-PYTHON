@@ -24,7 +24,7 @@ class Airport(models.Model):
 
 
 class Frequency(models.Model):
-    icao = models.ForeignKey(Airport, on_delete=models.DO_NOTHING)
+    icao = models.ForeignKey(Airport, on_delete=models.CASCADE)
     type = models.CharField(max_length=16)
     description = models.CharField(max_length=64)
     frequency = models.DecimalField(null=True, max_digits=7, decimal_places=3)
@@ -36,7 +36,7 @@ class Frequency(models.Model):
 
 
 class Runway(models.Model):
-    icao = models.ForeignKey(Airport, on_delete=models.DO_NOTHING)
+    icao = models.ForeignKey(Airport, on_delete=models.CASCADE)
     length_ft = models.IntegerField(null=True)
     width_ft = models.IntegerField(null=True)
     surface = models.CharField(max_length=64)

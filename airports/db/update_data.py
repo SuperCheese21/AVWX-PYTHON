@@ -1,6 +1,9 @@
 import csv
 import requests
 
+from decimal import InvalidOperation
+from django.core.exceptions import ObjectDoesNotExist
+
 
 def update_data(url, model, create_new):
     print(f"Requesting latest data from {url}...")
@@ -16,6 +19,10 @@ def update_data(url, model, create_new):
             new = create_new(row)
             new.save()
             print(f"Added {new} ({reader.line_num}/{len(rows)})")
+        except InvalidOperation:
+            print(f"  {new} - Number formatting error!")
+        except ObjectDoesNotExist:
+            print(f"  {new} - Foreign key not found!")
         except KeyboardInterrupt:
             print("Terminating database update...")
             exit()
