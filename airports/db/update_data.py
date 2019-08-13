@@ -1,8 +1,7 @@
 import csv
-import requests
-
 from decimal import InvalidOperation
 from django.core.exceptions import ObjectDoesNotExist
+import requests
 
 
 def update_data(url, model, create_new):
