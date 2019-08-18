@@ -1,13 +1,9 @@
 import csv
 from decimal import InvalidOperation
 from django.core.exceptions import ObjectDoesNotExist
-import requests
 
 
-def update_data(url, model, create_new):
-    print(f"Requesting latest data from {url}...")
-    rows = requests.get(url).text.split("\n")[:-1]
-
+def update_data(rows, model, create_new):
     print("Wiping database table...")
     model.objects.all().delete()
 

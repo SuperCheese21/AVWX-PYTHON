@@ -39,24 +39,16 @@ class Runway(models.Model):
     icao = models.ForeignKey(Airport, on_delete=models.CASCADE)
     length_ft = models.IntegerField(null=True)
     width_ft = models.IntegerField(null=True)
-    surface = models.CharField(max_length=64)
-    lighted = models.BooleanField(null=True)
-    closed = models.BooleanField(null=True)
+    surface = models.CharField(max_length=32)
     le_ident = models.CharField(max_length=8)
     le_latitude = models.FloatField(null=True)
     le_longitude = models.FloatField(null=True)
     le_elevation_ft = models.IntegerField(null=True)
-    le_heading_true = models.DecimalField(
-        null=True, max_digits=4, decimal_places=1
-    )
     le_displaced_threshold_ft = models.IntegerField(null=True)
     he_ident = models.CharField(max_length=8)
     he_latitude = models.FloatField(null=True)
     he_longitude = models.FloatField(null=True)
     he_elevation_ft = models.IntegerField(null=True)
-    he_heading_true = models.DecimalField(
-        null=True, max_digits=4, decimal_places=1
-    )
     he_displaced_threshold_ft = models.IntegerField(null=True)
 
     objects = RunwayManager()
