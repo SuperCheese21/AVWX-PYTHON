@@ -44,12 +44,12 @@ class Runway(models.Model):
     le_latitude = models.FloatField(null=True)
     le_longitude = models.FloatField(null=True)
     le_elevation_ft = models.FloatField(null=True)
-    le_displaced_threshold_ft = models.IntegerField(null=True)
+    le_displaced_ft = models.IntegerField(null=True)
     he_ident = models.CharField(max_length=8)
     he_latitude = models.FloatField(null=True)
     he_longitude = models.FloatField(null=True)
     he_elevation_ft = models.FloatField(null=True)
-    he_displaced_threshold_ft = models.IntegerField(null=True)
+    he_displaced_ft = models.IntegerField(null=True)
 
     objects = RunwayManager()
 

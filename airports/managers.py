@@ -40,10 +40,10 @@ class RunwayManager(models.Manager):
             le_latitude=row[5] or None,
             le_longitude=row[6] or None,
             le_elevation_ft=row[7] or None,
-            le_displaced_threshold_ft=row[8] or None,
+            le_displaced_ft=row[8] or None,
             he_ident=row[9],
             he_latitude=row[10] or None,
             he_longitude=row[11] or None,
             he_elevation_ft=row[12] or None,
-            he_displaced_threshold_ft=row[13] or None,
+            he_displaced_ft=row[13] or None,
         )
