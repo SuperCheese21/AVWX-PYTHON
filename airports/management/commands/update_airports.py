@@ -11,6 +11,6 @@ class Command(BaseCommand):
         url = "http://ourairports.com/data/airports.csv"
 
         print(f"Requesting latest airports data from {url}...")
-        rows = requests.get(url).text.split("\n")
+        rows = requests.get(url).text.split("\n")[:-1]
 
         update_data(rows, Airport, Airport.objects.create_airport)

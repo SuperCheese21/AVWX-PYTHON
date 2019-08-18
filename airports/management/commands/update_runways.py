@@ -12,6 +12,6 @@ class Command(BaseCommand):
         path = os.path.dirname(os.path.realpath(__file__)) + "/../../db/"
 
         with open(path + "runways.csv", "r") as runway_data:
-            rows = runway_data.read().split("\n")
+            rows = runway_data.read().split("\n")[:-1]
             create_new = lambda row: Runway.objects.create_runway(row, Airport)
             update_data(rows, Runway, create_new)
