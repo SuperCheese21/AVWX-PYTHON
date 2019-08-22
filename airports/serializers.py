@@ -12,10 +12,10 @@ class AirportSerializer(serializers.ModelSerializer):
 class FrequencySerializer(serializers.ModelSerializer):
     class Meta:
         model = Frequency
-        exclude = ['id']
+        exclude = ['id', 'icao']
 
 
 class RunwaySerializer(serializers.ModelSerializer):
     class Meta:
         model = Runway
-        exclude = ['id']
+        exclude = ['id', 'icao']
