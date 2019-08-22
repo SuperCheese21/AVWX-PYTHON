@@ -6,5 +6,6 @@ urlpatterns = [
     path('airports/all/<icao>/', views.airport_detail),
     path('airports/<icao>', views.airport),
     path('frequencies/<icao>', views.frequency),
-    path('runways/<icao>', views.runway)
+    path('runways/<icao>', views.runway),
+    path('metar/<icao>', views.metar)
 ]
