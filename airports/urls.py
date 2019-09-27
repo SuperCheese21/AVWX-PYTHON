@@ -3,9 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('airports/all/<icao>/', views.airport_detail),
     path('airports/<icao>', views.airport),
-    path('frequencies/<icao>', views.frequency),
-    path('runways/<icao>', views.runway),
-    path('metar/<icao>', views.metar)
+    path('airports/info/<icao>', views.airport),
+    path('airports/frequencies/<icao>', views.frequency),
+    path('airports/runways/<icao>', views.runway),
+    path('airports/metar/<icao>', views.metar)
 ]

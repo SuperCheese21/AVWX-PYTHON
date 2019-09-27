@@ -7,7 +7,7 @@ from airports.serializers import AirportSerializer, FrequencySerializer, RunwayS
 
 
 @csrf_exempt
-def airport_detail(request, icao):
+def airport(request, icao):
     if request.method != 'GET':
         return JsonResponse({
             "message": f"Invalid HTTP method"
@@ -36,7 +36,7 @@ def airport_detail(request, icao):
 
 
 @csrf_exempt
-def airport(request, icao):
+def info(request, icao):
     if request.method != 'GET':
         return JsonResponse({
             "message": f"Invalid HTTP method"
