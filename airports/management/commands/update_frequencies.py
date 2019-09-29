@@ -11,7 +11,7 @@ class Command(BaseCommand):
         url = "http://ourairports.com/data/airport-frequencies.csv"
 
         print(f"Requesting latest frequency data from {url}...")
-        rows = requests.get(url).text.split("\n")[:-1]
+        rows = requests.get(url).content.decode().split("\n")[:-1]
 
         create_new = lambda row: Frequency.objects.create_frequency(
             row,
