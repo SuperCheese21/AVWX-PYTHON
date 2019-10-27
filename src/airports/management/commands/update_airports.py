@@ -1,7 +1,7 @@
 import requests
 from django.core.management.base import BaseCommand
-from airports.models import Airport
-from airports.db.update_data import update_data
+from src.airports.models import Airport
+from src.airports.db.update_data import update_data
 
 
 class Command(BaseCommand):
