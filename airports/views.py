@@ -1,13 +1,12 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from airports.metar import get_metar_data
 from airports.models import Airport, Frequency, Runway
 from airports.serializers import AirportSerializer, FrequencySerializer, RunwaySerializer
 
 
 @csrf_exempt
-def airport_detail(request, icao):
+def airport(request, icao):
     if request.method != 'GET':
         return JsonResponse({
             "message": f"Invalid HTTP method"
@@ -22,7 +21,6 @@ def airport_detail(request, icao):
 
     frequency_data = Frequency.objects.filter(icao=icao).all()
     runway_data = Runway.objects.filter(icao=icao).all()
-    metar_data = get_metar_data(icao)
 
     airport_serializer = AirportSerializer(airport_data)
     frequency_serializer = FrequencySerializer(frequency_data, many=True)
@@ -30,13 +28,12 @@ def airport_detail(request, icao):
     return JsonResponse({
         'info': airport_serializer.data,
         'frequencies': frequency_serializer.data,
-        'runways': runway_serializer.data,
-        'metar': metar_data
+        'runways': runway_serializer.data
     })
 
 
 @csrf_exempt
-def airport(request, icao):
+def info(request, icao):
     if request.method != 'GET':
         return JsonResponse({
             "message": f"Invalid HTTP method"
@@ -80,17 +77,4 @@ def runway(request, icao):
     runway_serializer = RunwaySerializer(runway_data, many=True)
     return JsonResponse({
         'runways': runway_serializer.data
-    })
-
-
-@csrf_exempt
-def metar(request, icao):
-    if request.method != 'GET':
-        return JsonResponse({
-            "message": f"Invalid HTTP method"
-        }, status=405)
-
-    metar_data = get_metar_data(icao)
-    return JsonResponse({
-        'metar': metar_data
     })
