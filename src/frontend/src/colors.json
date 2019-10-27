@@ -1,0 +1,13 @@
+{
+  "dark": "#5c4d60",
+  "medium": "#2e86aa",
+  "light": "#b4cedd",
+  "runways": {
+    "asphalt": "#808080",
+    "concrete": "#a9a9a9",
+    "dirt": "#9b7653",
+    "grass": "#00c000",
+    "gravel": "#d3d3d3",
+    "water": "#0080ff"
+  }
+}
