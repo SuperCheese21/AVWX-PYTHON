@@ -17,9 +17,7 @@ export default class Airport extends Component {
         params: { icao }
       }
     } = this.props;
-    const { data } = await axios.get(
-      `http://167.99.105.195:8000/api/airports/${icao}`
-    );
+    const { data } = await axios.get(`/api/airports/${icao}`);
     this.setState({ data });
   }
 
