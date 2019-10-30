@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["25.28.221.184", "167.99.105.195", "localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "src.airports",
+    "app.airports",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "src.urls"
+ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = "src.wsgi.application"
+WSGI_APPLICATION = "app.wsgi.application"
 
 
 # Database

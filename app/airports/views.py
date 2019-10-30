@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from src.airports.models import Airport, Frequency, Runway
-from src.airports.serializers import AirportSerializer, FrequencySerializer, RunwaySerializer
+from app.airports.models import Airport, Frequency, Runway
+from app.airports.serializers import AirportSerializer, FrequencySerializer, RunwaySerializer
 
 
 @csrf_exempt

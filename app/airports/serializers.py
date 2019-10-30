@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from src.airports.models import Airport, Frequency, Runway
+from app.airports.models import Airport, Frequency, Runway
 
 
 class AirportSerializer(serializers.ModelSerializer):
