@@ -3,6 +3,12 @@ from rest_framework import serializers
 from app.airports.models import Airport, Frequency, Runway
 
 
+class AirportSearchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Airport
+        fields = ['icao', 'iata', 'name', 'country', 'municipality']
+
+
 class AirportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Airport

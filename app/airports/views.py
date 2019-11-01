@@ -1,8 +1,10 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework import filters, generics
+
 from app.airports.models import Airport, Frequency, Runway
-from app.airports.serializers import AirportSerializer, FrequencySerializer, RunwaySerializer
+from app.airports.serializers import AirportSearchSerializer, AirportSerializer, FrequencySerializer, RunwaySerializer
 
 
 @csrf_exempt
@@ -78,3 +80,12 @@ def runway(request, icao):
     return JsonResponse({
         'runways': runway_serializer.data
     })
+
+
+class AirportSearchView(generics.ListAPIView):
+    queryset = Airport.objects.all()
+    serializer_class = AirportSearchSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['^icao', '^iata', 'name', 'municipality']
+    ordering = ['-scheduled_service', 'icao']
+
