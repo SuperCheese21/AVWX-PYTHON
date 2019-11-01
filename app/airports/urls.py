@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('airports/search', views.AirportSearchView.as_view()),
-    path('airports/info/<icao>', views.info),
-    path('airports/frequencies/<icao>', views.frequency),
-    path('airports/runways/<icao>', views.runway),
+    path('airports/info/<pk>', views.AirportInfoView.as_view()),
+    path('airports/frequencies', views.FrequencyListView.as_view()),
+    path('airports/runways', views.RunwayListView.as_view()),
     path('airports/<icao>', views.airport),
 ]

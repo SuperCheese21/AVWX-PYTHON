@@ -54,32 +54,23 @@ def info(request, icao):
     })
 
 
-@csrf_exempt
-def frequency(request, icao):
-    if request.method != 'GET':
-        return JsonResponse({
-            "message": f"Invalid HTTP method"
-        }, status=405)
-
-    frequency_data = Frequency.objects.filter(icao=icao).all()
-    frequency_serializer = FrequencySerializer(frequency_data, many=True)
-    return JsonResponse({
-        'frequencies': frequency_serializer.data
-    })
+class AirportInfoView(generics.RetrieveAPIView):
+    queryset = Airport.objects.all()
+    serializer_class = AirportSerializer
 
 
-@csrf_exempt
-def runway(request, icao):
-    if request.method != 'GET':
-        return JsonResponse({
-            "message": f"Invalid HTTP method"
-        }, status=405)
+class FrequencyListView(generics.ListAPIView):
+    queryset = Frequency.objects.all()
+    serializer_class = FrequencySerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['=icao']
 
-    runway_data = Runway.objects.filter(icao=icao).all()
-    runway_serializer = RunwaySerializer(runway_data, many=True)
-    return JsonResponse({
-        'runways': runway_serializer.data
-    })
+
+class RunwayListView(generics.ListAPIView):
+    queryset = Runway.objects.all()
+    serializer_class = RunwaySerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['=icao']
 
 
 class AirportSearchView(generics.ListAPIView):
