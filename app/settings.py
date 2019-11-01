@@ -25,7 +25,7 @@ SECRET_KEY = "rrp1s*g(0mqgeixdbs0iuyfxfa@(pt4eo)s02o%q1$1wucznu2"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["airports.stratospherelabs.io"]
+ALLOWED_HOSTS = ["airports.stratospherelabs.io", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "frontend/build")],
+        "DIRS": [os.path.join(BASE_DIR, "frontend", "build")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,3 +121,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend", "build", "static")
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
