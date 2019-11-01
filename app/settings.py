@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "rrp1s*g(0mqgeixdbs0iuyfxfa@(pt4eo)s02o%q1$1wucznu2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["25.28.221.184", "167.99.105.195", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["airports.stratospherelabs.io"]
 
 
 # Application definition
