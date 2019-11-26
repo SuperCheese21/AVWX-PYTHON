@@ -9,7 +9,7 @@ class AirportSearchSerializer(serializers.ModelSerializer):
         fields = ['icao', 'iata', 'name', 'country', 'municipality']
 
 
-class AirportSerializer(serializers.ModelSerializer):
+class InfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Airport
         fields = '__all__'
