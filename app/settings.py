@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -26,7 +25,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "rrp1s*g(0mqgeixdbs0iuyfxfa@(pt4eo)s02o%q1$1wucznu2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Set allowed hosts
 ALLOWED_HOSTS = ["airports.stratospherelabs.io", "127.0.0.1", "localhost"]
@@ -136,7 +135,3 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "frontend", "build", "static")
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
